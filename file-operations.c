@@ -1,8 +1,6 @@
-     /* ***************** */
-    /*     HOMEWORK-4    */
-   /*  	Ugurcan Polat   */
-  /*	  150140117    */
- /*	polatu@itu.edu.tr */
+   /* ***************** */
+  /*   Ugurcan Polat   */
+ /* polatu@itu.edu.tr */
 /* ***************** */
 
 #include <stdio.h> // FILE, fopen(), fclose(), fprintf(), 
