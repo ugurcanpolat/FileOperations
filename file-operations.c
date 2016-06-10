@@ -4,7 +4,7 @@
 /* ***************** */
 
 #include <stdio.h> // FILE, fopen(), fclose(), fprintf(), 
-				  // feof(), fgets(), sscanf(), printf()
+	           // feof(), fgets(), sscanf(), printf()
 #include <stdlib.h> // malloc(), realloc(), free(), atoi(), atof()
 #include <math.h> // fabs(), pow()
 
@@ -24,7 +24,7 @@ struct person{
 // Prototypes
 void read_from_input_file (FILE* input_file, struct person *personPtr);
 void bmi_calculator (struct person *personPtr, double *bmi_diffs,
-											   double threshold);
+					       double threshold);
 void sort_bmi (struct person *personPtr, double *bmi_diffs, int num_ppl);
 
 int main(int argc, char **argv) {
@@ -70,8 +70,7 @@ int main(int argc, char **argv) {
 			
 		// Re-allocate struct pointer to use just enough memory 
 		personPtr = (struct person*)realloc(personPtr, 
-											num_ppl * sizeof(struct person)
-										    );							
+						    num_ppl * sizeof(struct person));	
 	} // end if
 	
 	// If there are no passed arguments, print default values.
@@ -127,22 +126,22 @@ int main(int argc, char **argv) {
 	
 	// Print table header to the first line of the output file. 
 	fprintf(output_file, "%9s %11s %11s %7s %19s\n", "Person_Id", 
-													  "Height(cm)", 
-													  "Weight(kg)", 
-													  "BMI",
-													  "|BMI-Threshold|");
+							 "Height(cm)", 
+							 "Weight(kg)", 
+							 "BMI",
+							 "|BMI-Threshold|");
 		
 	// Print the data of the people farthest from 'threshold' into 
 	// output file 'output.txt' 		
 	printf("\nWriting to output file...\n");							      
 	for(counter = 0; counter < num_farthest; counter++){
 		fprintf(output_file, "%7d %9g %11g %12.2f %13.2f \n", 
-										(personPtr+counter)->personId, 
-										(personPtr+counter)->height,
-										(personPtr+counter)->weight,   
-										(personPtr+counter)->BMI,
-										*(bmi_diffs+counter) 
-										);
+						(personPtr+counter)->personId, 
+						(personPtr+counter)->height,
+						(personPtr+counter)->weight,   
+						(personPtr+counter)->BMI,
+						*(bmi_diffs+counter) 
+					        );
 	}
 	
 	// If output is written as expected, print success.
@@ -171,12 +170,12 @@ void read_from_input_file (FILE* input_file, struct person *personPtr) {
 	// Assign the stored height and weight values to 
 	// related variables in structure.
 	sscanf(buffer, "%d %lf %lf", &personPtr->personId,
-								 &personPtr->height, 
-								 &personPtr->weight ); 
+				     &personPtr->height, 
+				     &personPtr->weight ); 
 } // end read_from_input_file()
 
 void bmi_calculator (struct person *personPtr, double *bmi_diffs, 
-											   double threshold) {											
+					       double threshold) {											
 	// Convert the height value from (cm) to (m)
 	double meter_height = personPtr->height / 100;
 
